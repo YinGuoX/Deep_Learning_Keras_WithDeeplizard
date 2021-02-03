@@ -44,4 +44,59 @@
 * 混淆矩阵(Confusion Matrix)
   * 理解
   * 绘制
-
+##### 9.Save And Load A Model With TensorFlow's Keras API
+* 全面保存和加载模型
+  * model.save(filepath)
+  * load_model(filepath)
+* 只保存和加载模型架构
+  * json_string=model.to_json() or to_yaml()...
+  * model_from_json(json_string)
+* 只保存和加载模型权重
+  * model.save_weights(filepath)
+  * model2.load_weights(filepath)
+##### 10.Image Preparation For A Convolutional Neural Network With TensorFlow's Keras API
+* 为接下来训练识别猫狗的CNN做数据准备
+* 组织数据
+* 数据处理
+  * 使用Keras的ImageDataGenerator()来创建一批数据
+* 可视化数据
+##### 11.Code Update For CNN Training With TensorFlow's Keras API
+* TensorFlow中的steps_per_epoch，validation_steps参数问题
+##### 12.Build And Train A Convolutional Neural Network With TensorFlow's Keras API
+* 建立、编译、训练识别猫狗的CNN
+##### 13.Convolutional Neural Network Predictions With TensorFlow's Keras API
+* 看看过拟合下的测试集的结果
+  * 使用predictions=model.predict(x,steps,verbose)
+* 使用混淆矩阵来观察测试集预测结果
+##### 14.Build A Fine-Tuned Neural Network With TensorFlow's Keras API
+* 导入VGG16模型
+* 微调VGG16模型
+  * 将VGG16模型的层添加到新模型中
+  * 并且冻结一些层的权重
+  * 给模型添加一些新层
+##### 15.Train A Fine-Tuned Neural Network With TensorFlow's Keras API
+* 根据14节中微调VGG16后的新模型，喂入数据，进行训练
+##### 16.Predict With A Fine-Tuned Neural Network With TensorFlow's Keras API
+* 根据14节中微调VGG16后的新模型，喂入测试集，查看预测效果
+* 绘制混淆矩阵来观察测试集预测结果
+##### 17.MobileNet Image Classification With TensorFlow's Keras API
+* 导入MobileNet模型
+* 使用MobileNet模型进行预测
+ * 采用随机的样本图像
+ * 查看预测结果
+   * from tensorflow.keras.applications import imagenet_utils
+   * results = imagenet_utils.decode_predictions(predictions)
+##### 18.Process Images For Fine-Tuned MobileNet With TensorFlow's Keras API
+* 为接下来训练识别手势识别的微调MobileNet做数据准备
+* 组织数据
+* 数据处理
+  * 使用Keras的ImageDataGenerator()来创建一批数据
+* 可视化数据
+##### 19.Fine-Tuning MobileNet On A Custom Data Set With TensorFlow's Keras API
+* 导入MobileNet模型
+* 微调MobileNet模型
+  * 挑选合适的MobileNet模型的层，并添加到新模型中(采用与之前微调VGG16不一样的方式)
+  * 并且冻结一些层的权重
+  * 给模型添加一些新层(输出层)
+* 编译、训练新模型
+* 使用混淆矩阵来观察预测结果(不再是二分类，而是多分类了！)
