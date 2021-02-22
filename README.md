@@ -100,3 +100,34 @@
   * 给模型添加一些新层(输出层)
 * 编译、训练新模型
 * 使用混淆矩阵来观察预测结果(不再是二分类，而是多分类了！)
+##### 20.Data Augmentation With TensorFlow's Keras API
+* 数据扩增
+ * 如：水平，垂直翻转，旋转，放大，缩小，裁切等操作
+* 为什么要数据扩增
+ * 使训练集变大，减少过拟合
+* 使用Keras进行数据扩增
+ * gen = ImageDataGenerator(...)
+ * aug_iter = gen.flow(image)
+* 保存数据扩增后的数据
+ *  aug_iter = gen.flow(image,save_to_dir='./Dog',save_prefix='aug-image-',save_format='jpeg')
+##### 21.Mapping Keras Labels To Image Classes
+* 使用Keras ImageDataGenerator时，如何查看Keras分配给相应图像的类的id或标签
+* 在ImageDataGenerator上访问一个名为class_indices的属性，它将返回包含从类名到类索引映射的字典。
+ * 表明对应的类别在one-hot编码上的第几个位置
+  * 如： {'cat': 1, 'dog': 0} 表示：10：狗,01：猫
+##### 22. Reproducible Results With Keras
+* 如何使用Keras通过人工神经网络获得可重复的结果。
+* 也即去除训练过程中发生的随机性
+* 设置随机种子
+##### 23. Initializing And Accessing Bias In Keras
+* 如何用Keras代码初始化和访问神经网络中的偏差。
+* 参数：use_bias
+* 参数：bias_initializer
+##### 24.Trainable Parameters In A Keras Model
+* 如何快速访问和计算Keras模型中可学习参数的数量。
+* model.summary()
+##### 25.Trainable Parameters In A Keras Convolutional Neural Network
+* 如何使用Keras代码快速访问和计算卷积神经网络中可学习参数的数量
+* 是否带零填充
+* 是否带最大池化
+* 这些都很影响神经网络中的可训练参数的数量
